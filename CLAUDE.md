@@ -13,16 +13,18 @@ An online store selling high-performance Chinese table tennis blades/rubbers to 
 - Hosted on GitHub Pages: https://wish210.github.io/pingpro/
 - Blade Finder quiz works end-to-end
 - All products marked "Coming Soon" (no payment integration yet)
-- Form needs Formspree wiring
+- Contact form wired to Formspree (endpoint: xzdwvopa) — collecting emails NOW
+- JS hardened for cross-browser compatibility (IE11+, older iOS Safari)
 
 ## Next Steps (pick up here)
 See `docs/WORKLOG.md` for full task list. Key next actions:
-1. Wire contact form to Formspree for email capture
-2. Order booster samples (Haifu Seamoon, Falco Tempo Long, DHS No.15)
-3. Order blade samples (V14 Pro, Sanwei 75 ALC)
-4. Contact Falco (falcott.com) about US wholesale/distribution
-5. Add Google Analytics (GA4)
-6. Push updated site to GitHub Pages
+1. **Get SDS sheets** — email Falco (info@falcott.com) + Haifu AliExpress seller for Safety Data Sheets (determines shipping method)
+2. **Contact Falco for wholesale** — they're French/Belgian, distribute to 36 countries, likely want a US retail partner
+3. **First inventory order** — 10x Haifu Seamoon 60ml + 5x Haifu 120ml + 5x Falco Tempo Long (~$315)
+4. **Switch "Coming Soon" to "Pre-Order"** — validate demand with real money before stocking blades
+5. **Post in r/tabletennis** — "Where do you buy boosters in the US?" thread (build presence, don't sell)
+6. Add Google Analytics (GA4)
+7. Push updated site to GitHub Pages
 
 ## Knowledge Base
 Research and planning docs live in `docs/skills/`:

@@ -240,17 +240,17 @@
     <section id="contact" class="contact">
         <h2>Get Notified When We Launch</h2>
         <p>We're stocking up now. Drop your email to be first in line — and get a blade recommendation if you want one.</p>
-        <form class="contact-form" id="contactForm">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <select>
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xzdwvopa" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <select name="interest">
                 <option value="">What interests you most?</option>
                 <option value="booster">Rubber boosters (Falco, Haifu, DHS)</option>
                 <option value="blade">High-end Chinese blades</option>
                 <option value="both">Both — blades and boosters</option>
                 <option value="recommendation">I need a blade recommendation</option>
             </select>
-            <textarea placeholder="Any specific products you're looking for? Or tell us about your setup..." rows="3"></textarea>
+            <textarea name="message" placeholder="Any specific products you're looking for? Or tell us about your setup..." rows="3"></textarea>
             <button type="submit" class="btn btn-primary">Notify Me</button>
         </form>
     </section>
@@ -270,9 +270,9 @@
             </div>
             <div class="footer-links">
                 <h4>Info</h4>
-                <a href="#">Shipping Policy</a>
-                <a href="#">Returns</a>
-                <a href="#">About Us</a>
+                <a href="#why-us">Shipping Policy</a>
+                <a href="#why-us">Returns</a>
+                <a href="#why-us">About Us</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>

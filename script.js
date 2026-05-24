@@ -1,54 +1,98 @@
+// Wait for DOM before attaching listeners
+document.addEventListener('DOMContentLoaded', function () {
+
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return; // skip dead links
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 });
 
-// Contact form submission
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const btn = this.querySelector('button[type="submit"]');
-    btn.textContent = "You're on the list!";
-    btn.style.background = '#2a9d8f';
-    this.reset();
-    setTimeout(() => {
-        btn.textContent = 'Notify Me';
-        btn.style.background = '';
-    }, 3000);
-});
+// Contact form submission via Formspree
+var contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = this.querySelector('button[type="submit"]');
+        var form = this;
+
+        // Basic client-side validation
+        var email = form.querySelector('input[type="email"]');
+        if (email && !email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+            email.focus();
+            return;
+        }
+
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        }).then(function (response) {
+            if (response.ok) {
+                btn.textContent = "You're on the list!";
+                btn.style.background = '#2a9d8f';
+                form.reset();
+            } else {
+                btn.textContent = 'Error — try again';
+                btn.style.background = '#e63946';
+            }
+            btn.disabled = false;
+            setTimeout(function () {
+                btn.textContent = 'Notify Me';
+                btn.style.background = '';
+            }, 3000);
+        }).catch(function () {
+            btn.textContent = 'Error — try again';
+            btn.style.background = '#e63946';
+            btn.disabled = false;
+            setTimeout(function () {
+                btn.textContent = 'Notify Me';
+                btn.style.background = '';
+            }, 3000);
+        });
+    });
+}
 
 // Navbar background on scroll
-window.addEventListener('scroll', function () {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
-    } else {
-        navbar.style.boxShadow = 'none';
-    }
-});
-
-// Animate elements on scroll
-const observerOptions = { threshold: 0.1 };
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+var navbar = document.querySelector('.navbar');
+if (navbar) {
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+            navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
+        } else {
+            navbar.style.boxShadow = 'none';
         }
     });
-}, observerOptions);
+}
 
-document.querySelectorAll('.product-card, .feature, .testimonial').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-});
+// Animate elements on scroll (only if IntersectionObserver is supported)
+if ('IntersectionObserver' in window) {
+    var observerOptions = { threshold: 0.1 };
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.product-card, .feature, .testimonial').forEach(function (el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+}
 
 // Blade Finder Quiz
 const quizData = {
@@ -177,38 +221,48 @@ function getRecommendation(answers) {
 }
 
 // Quiz interaction
-document.querySelectorAll('.quiz-option').forEach(option => {
+document.querySelectorAll('.quiz-option').forEach(function (option) {
     option.addEventListener('click', function () {
-        const step = this.closest('.quiz-step');
-        const stepNum = parseInt(step.dataset.step);
+        var step = this.closest('.quiz-step');
+        if (!step) return;
+        var stepNum = parseInt(step.dataset.step);
+
+        // Prevent double-clicks during transition
+        if (option.dataset.clicked) return;
+        option.dataset.clicked = 'true';
+        setTimeout(function () { delete option.dataset.clicked; }, 500);
 
         // Mark selected
-        step.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+        step.querySelectorAll('.quiz-option').forEach(function (o) { o.classList.remove('selected'); });
         this.classList.add('selected');
 
         // Store answer
-        const fields = ['level', 'style', 'budget', 'handle'];
+        var fields = ['level', 'style', 'budget', 'handle'];
         quizData.answers[fields[stepNum - 1]] = this.dataset.value;
 
         // Advance after brief delay
-        setTimeout(() => {
+        setTimeout(function () {
             if (stepNum < quizData.totalSteps) {
                 step.classList.remove('active');
-                document.querySelector(`[data-step="${stepNum + 1}"]`).classList.add('active');
+                var nextStep = document.querySelector('[data-step="' + (stepNum + 1) + '"]');
+                if (nextStep) nextStep.classList.add('active');
             } else {
                 // Show result
                 step.classList.remove('active');
-                const result = document.getElementById('quiz-result');
-                result.classList.add('active');
-
-                const rec = getRecommendation(quizData.answers);
-                document.getElementById('recommendation').innerHTML = `
-                    <h4>${rec.name}</h4>
-                    <p>${rec.desc}</p>
-                    <p style="margin-top: 0.8rem; font-weight: 600; color: var(--primary);">${rec.price}</p>
-                    <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #888;">Handle: ${quizData.answers.handle === 'fl' ? 'Flared' : quizData.answers.handle === 'st' ? 'Straight' : 'Penhold'}</p>
-                `;
+                var result = document.getElementById('quiz-result');
+                if (result) {
+                    result.classList.add('active');
+                    var rec = getRecommendation(quizData.answers);
+                    var handleLabel = quizData.answers.handle === 'fl' ? 'Flared' : quizData.answers.handle === 'st' ? 'Straight' : 'Penhold';
+                    document.getElementById('recommendation').innerHTML =
+                        '<h4>' + rec.name + '</h4>' +
+                        '<p>' + rec.desc + '</p>' +
+                        '<p style="margin-top: 0.8rem; font-weight: 600; color: var(--primary);">' + rec.price + '</p>' +
+                        '<p style="margin-top: 0.5rem; font-size: 0.85rem; color: #888;">Handle: ' + handleLabel + '</p>';
+                }
             }
         }, 300);
     });
 });
+
+}); // end DOMContentLoaded

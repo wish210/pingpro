@@ -89,3 +89,28 @@ The $50–$90 range with Chinese brand quality is UNDER-SERVED:
 - AliExpress buyers want it faster/easier
 - Traditional retailer buyers are overpaying for European/Japanese brands
 - PingPro can own the "smart player's choice" positioning
+
+## Booster Pricing — Validated May 2026
+
+### Megaspin Actual Booster Prices (US competitor benchmark)
+| Product | Megaspin Price | AliExpress Cost | PingPro Recommended |
+|---------|---------------|-----------------|---------------------|
+| Falco Tempo Long 150ml | $29.95 | ~$20-25 | **$27.99** |
+| Haifu Seamoon 60ml | $21.95 | $7.80-14.35 | **$18.99** |
+| Haifu Seamoon National (Yellow/Black/White) 60ml | $49.95 | ~$16 | **$42.99** |
+| Haifu Seamoon II 120ml | $49.99 | ~$15 | **$44.99** |
+| Falco Tempo Platinum 150ml | $37.99 | ~$25 | **$34.99** |
+
+### Strategy: Undercut Megaspin by $2-7, NOT race to AliExpress
+- Megaspin proves US customers pay these prices
+- Our cost basis is 50-70% below Megaspin retail
+- Undercut slightly for "obvious better deal" positioning
+- Never price so low that it signals "cheap/sketchy"
+
+### DHS Blade Reality Check
+| Model | Megaspin Price | Our Price | AliExpress |
+|-------|---------------|-----------|------------|
+| Hurricane Long 5 | $249.95 | $129.99 | $80-100 |
+| Hurricane Long 5X | $249.00 | $139.99 | $90-110 |
+| Hurricane King (Wang Chuqin) | $269.95 | — | $80-100 |
+| Hurricane Long 5 National (W968) | $799.95 | — | not available |

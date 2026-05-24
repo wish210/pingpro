@@ -10,7 +10,8 @@
 | TableTennisStore | tabletennisstore.us | Major brands | Pro shop + online, expert assembly | Small scale, Pleasantville NY only |
 | JOOLA (DTC) | joola.com | JOOLA only | Strong brand, pickleball crossover | Single brand, mass-market focus |
 | Amazon | amazon.com | Everything | Prime shipping, trust | No expertise, counterfeit risk, race to bottom |
-| Cole TT | coleytabletennis.com | Indie + Chinese brands | Curated indie, good content | Very small, niche |
+| Cole TT | coleytabletennis.com | Indie + Chinese brands | Curated indie, good content | **Possibly defunct** (ECONNREFUSED May 2026) |
+| ZeroPong | zeropong.com → gamblertt.com | Private-label "Gambler" brand only | $5 flat shipping, custom assembly | No Chinese brands, single brand |
 
 ### European Online Retailers (ship to US)
 | Store | URL | Strength | Weakness for US buyers |
@@ -90,6 +91,31 @@
 2. Comparison articles: "[Chinese brand] vs [Japanese brand]"
 3. Buyer's guides: "Best blades for [style/budget/level]"
 4. Blade finder tool generates unique pages per result
+
+## Booster Market — Competitive Intelligence (May 2026)
+
+### Who sells boosters in the US?
+| Store | Products | Price Range | Notes |
+|-------|----------|-------------|-------|
+| Megaspin | Falco Tempo Long, Haifu Seamoon (6 variants) | $21.95–$49.99 | **Only serious US source** |
+| Paddle Palace | None found | — | Empty boosters page |
+| Amazon | Blocked/unavailable | — | 503 errors, likely hazmat restrictions |
+| AliExpress | Full Haifu range, some Falco | $7.80–$16.06 | 7-10 day ship to US |
+
+### Key Insight
+Megaspin is essentially the ONLY US-based booster retailer. Paddle Palace doesn't stock them. Amazon likely blocks them (hazmat). Cole's TT appears defunct. This means PingPro's real competition for boosters is ONE store.
+
+### Hazmat Shipping Concern
+- Oil-based boosters may classify as flammable liquids (ORM-D)
+- USPS: Ground-only, requires ORM-D labeling if flashpoint < 141F
+- UPS/FedEx: Limited quantity provisions available
+- Megaspin ships them fine → confirms it's solvable
+- **ACTION**: Get SDS from Falco (info@falcott.com) and Haifu seller before first order
+
+### Falco Company Details
+- Origin: Belgium (2004), now French-owned (2011, owner: Yannick FER)
+- Distributes to 36 countries
+- Likely open to new US retail partner (contact for wholesale)
 
 ## Social Media Landscape
 

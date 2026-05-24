@@ -1,5 +1,35 @@
 # PingPro - Work Log
 
+## 2026-05-24 — Formspree, Bug Fixes, Market Validation
+
+### Done
+- Wired contact form to Formspree (endpoint: xzdwvopa) — email capture is live
+- Fixed 8 JS bugs: DOMContentLoaded wrapper, null guards, IntersectionObserver feature check, double-click debounce on quiz, template literal removal for old browser compat, cached DOM refs, dead link handling
+- Market research: validated pricing against Megaspin (only real US booster competitor)
+- Confirmed Yinhe gap still real (Megaspin carries Sanwei but NOT Yinhe, NOT 75 ALC)
+- ZeroPong confirmed dead (redirects to GamblerTT), Cole's TT likely defunct (ECONNREFUSED)
+- Falco is French/Belgian (not Spanish), distributes to 36 countries — good wholesale prospect
+- Updated skills: 02-pricing-margins (booster pricing benchmarks), 06-competitive-landscape (booster market intel)
+- Created /PingGit skill for automated project sync
+
+### Decisions
+- Reprice boosters UP (was underpricing vs Megaspin — market pays $30+ for Falco, $50 for premium Haifu)
+- Pursue bundle strategy (blade + booster combos) — nobody does this
+- Pre-sell before stocking (use Stripe pre-orders to fund first inventory)
+- First order: boosters heavy (15 bottles) + minimal blades (6) — ~$591 total investment
+- Must get SDS sheets from Falco/Haifu before ordering (hazmat shipping classification)
+
+### Next Steps
+- [ ] Email Falco (info@falcott.com) for wholesale pricing + SDS
+- [ ] Email Haifu AliExpress seller for bulk pricing + SDS
+- [ ] Post in r/tabletennis (build credibility, don't sell)
+- [ ] Switch "Coming Soon" to "Pre-Order — Ships [date]" + Stripe integration
+- [ ] Add GA4
+- [ ] Push updated site to GitHub Pages
+- [ ] Consider booster subscription model ("Booster Club" quarterly auto-ship)
+
+---
+
 ## 2026-05-23 — Strategy Pivot & Site Rebuild
 
 ### Strategy Change
